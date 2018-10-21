@@ -64,8 +64,10 @@ class Balise extends Component {
     }
     renderTodos() {
         return this.state.tab.map((item) => {
+
             var regex = new RegExp("[^\\s]");
-            if(item.length>1 && ! regex){
+
+            if(item.length>=1){
                 return(
                     <div className = "list-group-item d-flex justify-content-between align-items-center" key  = { item }>
                     <textarea className = "form-control" id = "exampleTextarea" rows="3" value = {item}/>

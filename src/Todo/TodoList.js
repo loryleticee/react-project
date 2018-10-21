@@ -41,10 +41,11 @@ class TodoList extends Component {
     }
     renderTodos() {
         return this.state.items.map((item) => {
+            
             //Expression reguliere qui annule les espaces
             var regex = new RegExp("[^\\s]");
 
-            if(item.length>1 && !regex){
+            if(item.length>1){
                 return(
                     <div className = "list-group-item d-flex justify-content-between align-items-center" key  = { item }>
                         { item } <button onClick = { this.deleteTodo.bind(this)} >X</button> 
