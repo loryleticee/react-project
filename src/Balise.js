@@ -67,7 +67,7 @@ class Balise extends Component {
             if(item.length>1){
                 return(
                     <div className = "list-group-item d-flex justify-content-between align-items-center" key  = { item }>
-                    <input type="text" value = {item}/>
+                    <textarea className = "form-control" id = "exampleTextarea" rows="3" value = {item}/>
                     </div>
                 );
             }
@@ -78,21 +78,23 @@ class Balise extends Component {
     render() {
         return(
             <div className = "jumbotron"> 
-                <h1 align = "center" >Mes Balises  </h1>
-                <form className = "form-group">
+                <h1 align = "center" >My TAGS  </h1>
+                <form className = "form-group has-success">
                     <input 
+                        className = "form-control is-valid" id="inputValid"
                         required
-                        className = "form-control"
                         type = "text" 
                         value = { this.state.userInput }
-                        placeholder ="Renseigner un item"
+                        placeholder ="For  <p></p><p></p>      tape      p2"
                         onChange = { this.onChange.bind(this) }
                     />
                     <br/>
                     <input 
+                        
                         required
                         className = "btn btn-primary"
                         type = "submit"
+                        value = "GET IT"
                         onClick ={this.addTodo.bind(this) }
                     />
                 </form>

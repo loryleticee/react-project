@@ -52,14 +52,14 @@ class TodoList extends Component {
     render() {
         return(
             <div className = "jumbotron"> 
-                <h1 align = "center" >Ma TodoList  </h1>
-                <form className = "form-group">
+                <h1 align = "center" >My TodoList  </h1>
+                <form className = "form-group has-success">
                     <input 
                         required
                         className = "form-control"
                         type = "text" 
                         value = { this.state.userInput }
-                        placeholder ="Renseigner un item"
+                        placeholder ="Add a row"
                         onChange = { this.onChange.bind(this) }
                     />
                     <br/>
@@ -67,6 +67,7 @@ class TodoList extends Component {
                         required
                         className = "btn btn-primary"
                         type = "submit"
+                        value = "Send to list"
                         onClick ={this.addTodo.bind(this) }
                     />
                 </form>

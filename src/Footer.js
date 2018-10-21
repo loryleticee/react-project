@@ -14,6 +14,13 @@ class Footer extends Component {
                         placeholder = "https://bootswatch.com/lux/"
                     />
                 </div>
+                <div>
+                    <footer className = "blockquote-footer">
+                        <cite>
+                            by {this.props.lastName+" "+this.props.firstName}
+                        </cite>
+                    </footer>
+                </div>
             </div>
         );
     }

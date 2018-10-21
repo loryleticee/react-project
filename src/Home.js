@@ -25,7 +25,7 @@ removeOne(event){
 render() {
     return (
         <div className = "jumbotron">
-            <h1> Bienvenue {this.props.name+" "+this.props.lol}</h1>
+            <h1 align = "center"> Bienvenue </h1>
             <p 
                 className = "text-secondary" > 
                 Mon conteur : {this.state.count}

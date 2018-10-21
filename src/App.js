@@ -12,11 +12,11 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Home name="Leticee" lol="moi"/>
+        <Home />
         <TodoList />
         <Form />
         <Balise />
-        <Footer />
+        <Footer lastName="LETICEE" firstName="lory"/>
 
       </div>
     )

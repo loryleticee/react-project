@@ -17,6 +17,10 @@ class Form extends Component {
     handleSubmit(e) {
         e.preventDefault();
         console.log(`${this.state.author} said “${this.state.text}”`)
+        this.setState({
+            author: '',
+             text: ''
+        })
         //we will be tying this into the POST method in a bit
     }
     render() {
