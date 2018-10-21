@@ -34,12 +34,14 @@ class Balise extends Component {
 
             var re = new RegExp('[0-9]');
 
+
       
             if(re){
                 var mi = this.state.tab.push(("<"+chr+"></"+chr+">").repeat(nextChar));
             }else{
-
-                var mi = this.state.tab.push("<"+chr+"></"+chr+">");
+                if(!/^(.).?[0-9]/.test({chr})){
+                    var mi = this.state.tab.push("<"+chr+"></"+chr+">");
+                }
             }
             if( i < inputSize){
                 i++;
@@ -67,12 +69,14 @@ class Balise extends Component {
 
             var regex = new RegExp("[^\\s]");
 
-            if(item.length>=1){
+            if(item.length>=1 ){
+                
                 return(
                     <div className = "list-group-item d-flex justify-content-between align-items-center" key  = { item }>
                     <textarea className = "form-control" id = "exampleTextarea" rows="3" value = {item}/>
                     </div>
                 );
+                
             }
         });
        
@@ -98,7 +102,7 @@ class Balise extends Component {
                         className = "btn btn-primary btn-lg btn-block"
                         type = "submit"
                         value = "GET IT"
-                        onClick ={this.addTodo.bind(this) }
+                        onClick = {this.addTodo.bind(this) }
                     />
                 </form>
                 <div className = "list-group">
