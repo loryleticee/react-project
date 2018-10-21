@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { isNull } from 'util';
 
 class Balise extends Component {
 
@@ -22,11 +23,31 @@ class Balise extends Component {
     addTodo(event){
         //Empeche le rechargement de la page 
         event.preventDefault();
-        for (var chr of this.state.userInput) {
-            var mi = this.state.tab.push("<"+chr+"></"+chr+">");
+        let i=1 ;
+        for (let chr of this.state.userInput) {
+
+            var inputSize = this.state.userInput.length;
+            
+            var indexNextChar = this.state.userInput.length-this.state.userInput.length+i+1;
+
+            var nextChar = this.state.userInput.substring(i,indexNextChar);
+
+            var re = new RegExp('[0-9]');
+
+      
+            if(re){
+                var mi = this.state.tab.push(("<"+chr+"></"+chr+">").repeat(nextChar));
+            }else{
+
+                var mi = this.state.tab.push("<"+chr+"></"+chr+">");
+            }
+            if( i < inputSize){
+                i++;
+            }
         }
         this.setState({
-            tab : [...this.state.tab, mi]
+            tab : [...this.state.tab, mi],
+            userInput:''
          })
     }
     deleteTodo(event){
@@ -43,12 +64,15 @@ class Balise extends Component {
     }
     renderTodos() {
         return this.state.tab.map((item) => {
-            return(
-                <div className = "list-group-item d-flex justify-content-between align-items-center" key  = { item }>
-                   <input type="text" value = {item}/> <button onClick = { this.deleteTodo.bind(this)} >X</button> 
-                </div>
-            );
+            if(item.length>1){
+                return(
+                    <div className = "list-group-item d-flex justify-content-between align-items-center" key  = { item }>
+                    <input type="text" value = {item}/>
+                    </div>
+                );
+            }
         });
+       
     }
 
     render() {
