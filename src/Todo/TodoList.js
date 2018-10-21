@@ -41,11 +41,16 @@ class TodoList extends Component {
     }
     renderTodos() {
         return this.state.items.map((item) => {
-            return(
-                <div className = "list-group-item d-flex justify-content-between align-items-center" key  = { item }>
-                    { item } <button onClick = { this.deleteTodo.bind(this)} >X</button> 
-                </div>
-            );
+            //Expression reguliere qui annule les espaces
+            var regex = new RegExp("[^\\s]");
+
+            if(item.length>1 && !regex){
+                return(
+                    <div className = "list-group-item d-flex justify-content-between align-items-center" key  = { item }>
+                        { item } <button onClick = { this.deleteTodo.bind(this)} >X</button> 
+                    </div>
+                );
+            }
         });
     }
 
@@ -53,9 +58,9 @@ class TodoList extends Component {
         return(
             <div className = "jumbotron"> 
                 <h1 align = "center" >My TodoList  </h1>
-                <form className = "form-group has-success">
+                <form className = "form-group ">
                     <input 
-                        required
+                        required 
                         className = "form-control"
                         type = "text" 
                         value = { this.state.userInput }

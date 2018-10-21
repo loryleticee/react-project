@@ -64,7 +64,8 @@ class Balise extends Component {
     }
     renderTodos() {
         return this.state.tab.map((item) => {
-            if(item.length>1){
+            var regex = new RegExp("[^\\s]");
+            if(item.length>1 && ! regex){
                 return(
                     <div className = "list-group-item d-flex justify-content-between align-items-center" key  = { item }>
                     <textarea className = "form-control" id = "exampleTextarea" rows="3" value = {item}/>
@@ -79,10 +80,11 @@ class Balise extends Component {
         return(
             <div className = "jumbotron"> 
                 <h1 align = "center" >My TAGS  </h1>
-                <form className = "form-group has-success">
+                <form className = "form-group">
                     <input 
                         className = "form-control is-valid" id="inputValid"
                         required
+                        defaultValue = "p"
                         type = "text" 
                         value = { this.state.userInput }
                         placeholder ="For  <p></p><p></p>      tape      p2"
@@ -90,9 +92,8 @@ class Balise extends Component {
                     />
                     <br/>
                     <input 
-                        
                         required
-                        className = "btn btn-primary"
+                        className = "btn btn-primary btn-lg btn-block"
                         type = "submit"
                         value = "GET IT"
                         onClick ={this.addTodo.bind(this) }

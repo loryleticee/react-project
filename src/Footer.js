@@ -11,7 +11,7 @@ class Footer extends Component {
                     />
                     <input 
                         className = "form-control"
-                        placeholder = "https://bootswatch.com/lux/"
+                        placeholder = "https://bootswatch.com/materia/"
                     />
                 </div>
                 <div>
